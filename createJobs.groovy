@@ -1,8 +1,14 @@
-pipelineJob('pipelineJob') {
+pipelineJob('insertCustomerComplete') {
     definition {
-        cps {
-            script(readFileFromWorkspace('pipelineJob.groovy'))
-            sandbox()
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url 'https://github.com/soulasesing/insertCustomerComplete.git'
+                    }
+                    branch 'master'
+                }
+            }
         }
     }
 }
